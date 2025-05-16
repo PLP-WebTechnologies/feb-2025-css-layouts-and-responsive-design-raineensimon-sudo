@@ -1,0 +1,151 @@
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* NAVBAR using Flexbox */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4a90e2;
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger button - hidden on desktop */
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* MAIN CONTENT GRID */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.sidebar {
+  background-color: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.main-content {
+  background-color: #f0f4f8;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+.extra {
+  background-color: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ddd;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+  .extra {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  /* Navbar: stack logo and hamburger */
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #4a90e2;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Grid layout becomes a single column */
+  .content-grid {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+  }
+
+  .sidebar,
+  .main-content,
+  .extra {
+    margin-bottom: 1rem;
+  }
+
+  .extra {
+    display: block;
+  }
+}
